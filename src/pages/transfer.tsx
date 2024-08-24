@@ -6,11 +6,13 @@ import { parseEther } from "viem";
 import { JsonRpcSigner } from "ethers";
 import axios from "axios";
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 const Transfer = () => {
   const [amount, setAmount] = useState("");
   const [recipient, setRecipient] = useState("");
   const { data: hash, writeContract: approveContract } = useWriteContract();
-  const { data: hash1, writeContract: deposit } = useWriteContract();
+  const { data: tx, writeContract: deposit } = useWriteContract();
   // const { data: signer } = useEthersSigner();
 
   const erc20Address = "0x4a669e1267f6da8b51e21bc3c402a8614ae7cd1a";
@@ -22,13 +24,14 @@ const Transfer = () => {
       const formData = new FormData(e.target as HTMLFormElement);
       const amount = (formData.get("amount") as string) || "0";
       const recipient = (formData.get("recipient") as string) || "0";
-
+      const amountInWei = parseEther(amount);
+      console.log("amountInWei", amountInWei.toString());
       // Step1: Get approval
       approveContract({
         address: erc20Address,
         abi: erc20Abi,
         functionName: "approve",
-        args: [zetoTokenAddress, parseEther(amount)],
+        args: [zetoTokenAddress, amountInWei.toString()],
       });
 
       // Call api to generate the proof
@@ -36,7 +39,7 @@ const Transfer = () => {
         "http://localhost:3001/api/generate-proof",
         { amount }
       );
-      const { outputCommitments, encodedProof } = response.data;
+      const { outputCommitments, encodedProof } = await response.data;
 
       console.log({ outputCommitments, encodedProof });
 
@@ -44,7 +47,7 @@ const Transfer = () => {
         address: zetoTokenAddress,
         abi: zetoTokenAbi,
         functionName: "deposit",
-        args: [parseEther(amount), outputCommitments[0]],
+        args: [amount, outputCommitments[0], encodedProof],
       });
 
       // Prepare transfer proofs
