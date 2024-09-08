@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Zeta Transaction App
 
-## Getting Started
+Frontend application for private transactions on Hedera using Zeta SDK.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Web3Modal integration for wallet connection
+- Support for multiple chains including Mainnet, Sepolia, and Hedera Testnet
+- React Query for efficient data fetching and state management
+- Wagmi hooks for interacting with Ethereum
+- ERC20 token support
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `src/blockchain/config`: Configuration for Web3Modal and Wagmi
+- `src/context`: React context provider for Web3Modal
+- `src/libs/abis`: ABI definitions for smart contract interactions
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Setup
 
-## Learn More
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   bun install
+   ```
+3. Set up your environment variables:
+   - Create a `.env.local` file in the root directory
+   - Add your WalletConnect Cloud project ID:
+     ```
+     NEXT_PUBLIC_PROJECT_ID=your_project_id_here
+     ```
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This application provides a user interface for interacting with blockchain networks, specifically for private transactions on Hedera using the Zeta SDK. Users can connect their wallets, view account information, and perform transactions.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Configuration
 
-## Deploy on Vercel
+The project uses Wagmi for blockchain interactions. The configuration can be found in `src/blockchain/config/index.ts`. You can modify the supported chains and other settings there.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
