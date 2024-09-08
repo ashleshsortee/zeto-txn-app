@@ -1,36 +1,37 @@
 {
-  "name": "zeto-tx-app",
-  "private": true,
+  "name": "zeto-app",
   "version": "0.1.0",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@radix-ui/react-icons": "^1.3.0",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.435.0",
-    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.0",
-    "@rainbow-me/rainbowkit": "^2.1.5",
-    "@tanstack/react-query": "^5.51.11",
-    "axios": "^1.7.5",
-    "fs": "^0.0.1-security",
-    "maci-crypto": "1.1.1",
-    "next": "^14.2.3",
-    "react": "^18.3.0",
-    "react-dom": "^18.3.0",
-    "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7",
-    "viem": "2.17.0",
-    "wagmi": "^2.12.0",
-    "zeto-js": "file:./src/pages/api/zkp/js"
+    "@tanstack/react-query": "^5.53.3",
+    "@web3modal/wagmi": "^5.1.4",
+    "axios": "^1.7.7",
+    "encoding": "^0.1.13",
+    "ethers": "^6.13.2",
+    "framer-motion": "^11.3.31",
+    "next": "14.2.7",
+    "pino-pretty": "^11.2.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.3.0",
+    "react-toastify": "^10.0.5",
+    "viem": "^2.21.1",
+    "wagmi": "^2.12.8"
   },
   "devDependencies": {
-    "@types/node": "^18.19.3",
-    "@types/react": "^18.3.0",
-    "tailwindcss": "^3.4.10",
-    "typescript": "5.4.2"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.7",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }

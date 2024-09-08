@@ -1,29 +1,51 @@
-This is a [RainbowKit](https://rainbowkit.com) + [wagmi](https://wagmi.sh) + [Next.js](https://nextjs.org/) project bootstrapped with [`create-rainbowkit`](/packages/create-rainbowkit).
+# Zeta Transaction App
 
-## Getting Started
+Frontend application for private transactions on EVM using Zeta SDK.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-```
+- Web3Modal integration for wallet connection
+- Support for multiple chains including Mainnet, Sepolia, etc
+- React Query for efficient data fetching and state management
+- Wagmi hooks for interacting with Ethereum
+- ERC20 token support
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- `src/blockchain/config`: Configuration for Web3Modal and Wagmi
+- `src/context`: React context provider for Web3Modal
+- `src/libs/abis`: ABI definitions for smart contract interactions
 
-## Learn More
+## Setup
 
-To learn more about this stack, take a look at the following resources:
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   bun install
+   ```
+3. Set up your environment variables:
+   - Create a `.env.local` file in the root directory
+   - Add your WalletConnect Cloud project ID:
+     ```
+     NEXT_PUBLIC_PROJECT_ID=your_project_id_here
+     ```
 
-- [RainbowKit Documentation](https://rainbowkit.com) - Learn how to customize your wallet connection flow.
-- [wagmi Documentation](https://wagmi.sh) - Learn how to interact with Ethereum.
-- [Next.js Documentation](https://nextjs.org/docs) - Learn how to build a Next.js application.
+## Usage
 
-You can check out [the RainbowKit GitHub repository](https://github.com/rainbow-me/rainbowkit) - your feedback and contributions are welcome!
+This application provides a user interface for interacting with blockchain networks, specifically for private transactions on EVM using the Zeta SDK. Users can connect their wallets, view account information, and perform transactions.
 
-## Deploy on Vercel
+## Configuration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project uses Wagmi for blockchain interactions. The configuration can be found in `src/blockchain/config/index.ts`. You can modify the supported chains and other settings there.
 
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
