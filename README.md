@@ -1,6 +1,7 @@
 # Zeta Transaction App
 
 Frontend application for private transactions on EVM using Zeta SDK.
+Backend repo - https://github.com/ashleshsortee/zeto-backend
 
 ## Features
 
